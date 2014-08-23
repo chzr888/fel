@@ -84,7 +84,7 @@ public class Sub extends StableFunction {
 			if (leftValue instanceof Number && rightValue instanceof Number) {
 				double l = NumberUtil.toDouble(leftValue);
 				double r = NumberUtil.toDouble(rightValue);
-				return NumberUtil.parseNumber(l - r);
+				return NumberUtil.parseNumber(((l * 1000) - ( r * 1000) )/1000);
 //				if (NumberUtil.isFloatingPoint(left)
 //						|| NumberUtil.isFloatingPoint(right)) {
 //				}

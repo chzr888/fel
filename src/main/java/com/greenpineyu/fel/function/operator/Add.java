@@ -53,7 +53,8 @@ public class Add extends StableFunction  {
 				Number value = (Number) child;
 				if (returnMe instanceof Number) {
 					Number r = (Number) returnMe;
-					returnMe = toDouble(r) + toDouble(value);
+					//returnMe = NumberUtil.toBigDecimal(r).add(NumberUtil.toBigDecimal(value));
+					returnMe = (toDouble(r) * 1000 + toDouble(value) * 1000) / 1000;
 				}else if(returnMe instanceof String){
 					String r = (String) returnMe;
 					returnMe=r+value;
@@ -152,7 +153,9 @@ public class Add extends StableFunction  {
 			if (NumberUtil.isFloatingPointNumber(left) || NumberUtil.isFloatingPointNumber(right)) {
 				double l = NumberUtil.toDouble(left);
 				double r = NumberUtil.toDouble(right);
-				return new Double(l + r);
+				BigDecimal bl = NumberUtil.toBigDecimal(l);
+				BigDecimal br = NumberUtil.toBigDecimal(r);
+				return bl.add(br);
 			}
 			
 			if(left instanceof BigInteger && right instanceof BigInteger){
