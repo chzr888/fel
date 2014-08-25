@@ -146,10 +146,10 @@ public class NumberUtil {
                 return BigDecimal.valueOf(0);
             }
             return new BigDecimal(string);
-			// } else if (val instanceof Double) {
-			// return new BigDecimal((Double) val);
-			// } else if (val instanceof Float) {
-			// return new BigDecimal((Float) val);
+			 } else if (val instanceof Double) {
+			 return new BigDecimal((Double) val);
+			 } else if (val instanceof Float) {
+			 return new BigDecimal((Float) val);
 		} else if (val instanceof Number) {
             return new BigDecimal(val.toString());
         } else if (val instanceof Character) {
