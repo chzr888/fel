@@ -1,5 +1,8 @@
 package com.greenpineyu.fel;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import com.greenpineyu.fel.common.FelBuilder;
 import com.greenpineyu.fel.compile.CompileService;
 import com.greenpineyu.fel.context.ArrayCtxImpl;
@@ -27,9 +30,9 @@ public class FelEngineImpl implements FelEngine {
 	private CompileService compiler;
 
 	private Parser parser;
-	
+
 	private FunMgr funMgr;
-	
+
 	private SecurityMgr securityMgr;
 
 
@@ -45,9 +48,9 @@ public class FelEngineImpl implements FelEngine {
 		this.context = context;
 		compiler = new CompileService();
 		parser = new AntlrParser(this);
-		this.funMgr=new FunMgr();
+		this.funMgr = new FunMgr();
 	}
-	
+
 	{
 		this.securityMgr = FelBuilder.newSecurityMgr();
 	}
@@ -108,51 +111,44 @@ public class FelEngineImpl implements FelEngine {
 	public void addFun(Function fun) {
 		this.funMgr.add(fun);
 	}
-	
+
 	@Override
 	public FelContext getContext() {
 		return this.context;
 	}
-	
+
 	@Override
 	public CompileService getCompiler() {
 		return compiler;
 	}
-
 
 	@Override
 	public void setCompiler(CompileService compiler) {
 		this.compiler = compiler;
 	}
 
-
 	@Override
 	public Parser getParser() {
 		return parser;
 	}
-
 
 	@Override
 	public void setParser(Parser parser) {
 		this.parser = parser;
 	}
 
-
 	@Override
 	public FunMgr getFunMgr() {
 		return funMgr;
 	}
-
 
 	@Override
 	public void setFunMgr(FunMgr funMgr) {
 		this.funMgr = funMgr;
 	}
 
-
 	@Override
 	public void setContext(FelContext context) {
 		this.context = context;
 	}
-
 }
